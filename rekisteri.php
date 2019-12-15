@@ -8,7 +8,7 @@
   	<h2>Tervetuloa asiakkaaksi!</h2>
   </div>
 	
-  <form method="post" action="register.php">
+  <form method="post" action="rekisteri.php">
   	<?php include('tarkistus.php'); ?>
   	<div class="input-group">
   	  <label>Käyttäjänimi</label>
