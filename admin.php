@@ -1,15 +1,15 @@
-<?php include('serveri.php') ?>
+<?php include('adminserver.php') ?>
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="ulkoasu.css">
 </head>
 <body>
   <div class="header">
-  	<h2>Kirjaudu sisään</h2>
+  	<h2>Kirjaudu sisään ylläpitäjä</h2>
   </div>
 	 
-  <form method="post" action="kirjau.php">
-  	<?php include('tarkistus.php'); ?>
+  <form method="post" action="admin.php">
+  	<?php include('tarkistus.php'); //Salasana on tällä kertaa raakana koska vain yksin admin ja etten unohtaisi sitä :D ?>
   	<div class="input-group">
   		<label>Käyttäjänimi</label>
   		<input type="text" name="kayttajanimi" >
@@ -19,11 +19,9 @@
   		<input type="password" name="salasana">
   	</div>
   	<div class="input-group">
-  		<button type="submit" class="btn" name="kirjau">Kirjaudu</button>
+  		<button type="submit" class="btn" name="admin">Kirjaudu</button>
+		<p> <a href="kirjau.php" style="color: red;">Takaisin</a> </p>
   	</div>
-  	<p>
-  	 Et ole vielä jäsen? <a href="rekisteri.php">Rekisteröidy</a> 
-  	</p>
   </form>
 </body>
 </html>

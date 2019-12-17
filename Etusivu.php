@@ -1,10 +1,11 @@
 <?php 
-  session_start(); 
+ 
 // Tarkistaa onko käyttäjä kirjautunut, jos ei niin heittää suoraan kirjautumissivulle
-  if (!isset($_SESSION['kayttajanimi'])) {
-  	$_SESSION['msg'] = "Sinun pitää ensin kirjautua sisään";
-  	header('location: kirjau.php');
-  }
+ include('serveri.php');
+if (!onkokirjautunut()) {
+	$_SESSION['msg'] = "Kirjaudu ensin sisään";
+	header('location: kirjau.php');
+}
   if (isset($_GET['ulos'])) { //Tarkistaa onko painettu kirjaudu ulos nappia
   	session_destroy();
   	unset($_SESSION['kayttajanimi']);
@@ -34,11 +35,11 @@
 
     
     <?php  if (isset($_SESSION['kayttajanimi'])) : ?>
-    	<p>Tervetuloa!  <?php echo $_SESSION['kayttajanimi']; ?> Jatka eteenpäin tai kirjaudu tarvittaessa ulos</p>
+    	<p>Tervetuloa! Jatka eteenpäin tai kirjaudu tarvittaessa ulos</p>
 		<br>
     	<p> <a href="Etusivu.php?ulos='1'" style="color: red;">Kirjaudu ulos</a> </p>
 		<br>
-		<p> <a href="Etusivu2.php" style="color: green;">Seuraavalle sivulle</a> </p>
+		<p> <a href="Etusivu2.php" style="color: green;">Seuraavalle sivulle</a> </p>  <p> <a href="luo.php" style="color: black;">Admin juttuja</a> </p>
     <?php endif ?>
 </div>
 		
