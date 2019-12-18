@@ -1,8 +1,9 @@
-<?php include('serveri.php') ?>
-<?phpif (!Admin()) { // Tarkistaa onko admin vai ei
-	$_SESSION['msg'] = "Ei oikeuksia";
-	header('location: kirjau.php');
-} ?>
+<?php include('serveri.php');
+ if (!Admin()) { // Tarkistaa onko admin vai ei
+	
+	header('location: Etusivu.php');
+}
+ ?>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="ulkoasu.css">
@@ -37,7 +38,7 @@
 			<input type="password" name="salasana_2">
 		</div>
 		<div class="input-group">	<!-- Piilotettuna koska kuka vaan voi lisätä, tarkoituksen olisi että vain admin voi -->
-			<button type="submit" hidden class="btn" name="rekisteri">Luo käyttäjä</button>
+			<button type="submit"  class="btn" name="rekisteri">Luo käyttäjä</button>
 			<p> <a href="Etusivu.php" style="color: blue;">Takaisin</a> </p>
 		</div>
 	</form>

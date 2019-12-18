@@ -1,5 +1,5 @@
 <?php //Tuloksille oma serveri selkeyden vuoksi
-	session_start();
+	
 	$db = mysqli_connect('localhost', 'root', '', 'tilastot'); //Yhteys
 
 	
@@ -29,11 +29,12 @@
 	$kmaalit = $_POST['kmaalit'];
 	$vmaalit = $_POST['vmaalit'];
 	$pmaara = $_POST['pmaara'];
-		// Päivittää tietokantaan
-	mysqli_query($db, "UPDATE ottelut SET kotijoukkue='$koti', vierasjoukkue='$vieras',kmaalit='$kmaalit',vmaalit='$vmaalit',paivamaara='$pmaara' WHERE id=$id");
+		// Päivittää tietokantaan mutta jostakin syystä ei tee mitään
+	mysqli_query($db, "UPDATE ottelut SET kotijoukkue='$koti', vierasjoukkue='$vieras', kmaalit='$kmaalit', vmaalit='$vmaalit', paivamaara='$pmaara' WHERE id=$id");
 	$_SESSION['viesti'] = "Tiedot on päivitetty!"; 
 	header('location: tulokset.php');
-} // Poistaa tietokannasta
+} 
+// Poistaa tietokannasta
 if (isset($_GET['poista'])) {
 	$id = $_GET['poista'];
 	mysqli_query($db, "DELETE FROM ottelut WHERE id=$id");

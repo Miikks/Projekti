@@ -1,12 +1,19 @@
+ <?php include_once('serveri.php');
+if (!onkokirjautunut()) {
+	$_SESSION['msg'] = "Kirjaudu ensin sisään";
+	header('location: kirjau.php');
+}
+?>
+
 <?php  include('oserveri.php'); ?>
 <?php 
 	if (isset($_GET['muokkaus'])) {
 		$id = $_GET['muokkaus'];
 		$update = true;
 		$hae = mysqli_query($db, "SELECT * FROM ottelut WHERE id=$id");
-
-		if (count($hae) == 1  ) {
-			$n = mysqli_fetch_assoc($hae); // Tämän kanssa on ongelmia 
+			//Hakee tiedot muokattavaksi
+		if (@count($hae) == 1  ) {
+			$n = mysqli_fetch_assoc($hae); 
 			$koti = $n['kotijoukkue'];
 			$vieras = $n['vierasjoukkue'];
 			$kmaalit = $n['kmaalit'];
@@ -24,7 +31,7 @@
 <?php if (isset($_SESSION['viesti'])): ?>
 	<div class="msg">
 		<?php 
-			echo $_SESSION['viesti']; 
+			echo $_SESSION['viesti']; //Ilmoituksille paikka
 			unset($_SESSION['viesti']);
 		?>
 	</div>
@@ -44,7 +51,7 @@
 			<th colspan="2">Poista</th>
 		</tr>
 	</thead>
-	
+	<!-- Näyttää olemassa olevat tiedot --->
 	<?php while ($row = mysqli_fetch_array($t)) { ?>
 		<tr>
 			<td><?php echo $row['kotijoukkue']; ?></td>
@@ -52,19 +59,28 @@
 			<td><?php echo $row['kmaalit']; ?></td>
 			<td><?php echo $row['vmaalit']; ?></td>
 			<td><?php echo $row['paivamaara']; ?></td>
+		<?php	include_once('serveri.php');
+if (Admin($id) == true) : ?>
 			<td>
-				<a href="tulokset.php?muokkaus=<?php echo $row['id']; ?>" class="muokkaus" >Muokkaa</a>
+				<a href="tulokset.php?muokkaus=<?php echo $row['id']; ?>" class="muokkaus">Muokkaa</a>
 			</td>
+			<?php endif ?>
+			<?php 
+include_once('serveri.php');
+if (Admin($id) == true) : ?>
 			<td>
-				<a href="oserveri.php?poista=<?php echo $row['id']; ?>" class="pois">Poista</a>
+				<a href="oserveri.php?poista=<?php echo$row['id']; ?>" class="pois">Poista</a>
 			</td>
+			<?php endif ?>
 		</tr>
 	<?php } ?>
 </table>
 
 
 
-
+<?php 
+include_once('serveri.php');
+if (Admin($id) == true) : ?>
 <form method="post" action="oserveri.php" >
 		<div class="input-group">
 			<label>Kotijoukkue</label>
@@ -88,13 +104,20 @@
 		</div>
 		<div class="input-group">
 			<?php if ($update == true): //Tallenna nappi muuttuu jos pitää päivittää?> 
-	<button class="btn" type="submit" name="paivita" style="background: #556B2F;" >Päivitä</button>
+	<button class="btn" type="submit" name="paivita"  >Päivitä</button>
 <?php else: ?>
 	<button class="btn" type="submit" name="tallenna" >Tallenna</button>
 <?php endif ?>
+<?php endif ?>
+
 		</div>
-		<br>
+		<br><?php 
+include_once('serveri.php');
+if (Admin($id) == true) : ?>
 		<p> <a href="Etusivu2.php" style="color: blue;">Takaisin</a> </p>
+		<?php else: ?>
+		<p align="center" > <a href="Etusivu2.php" style="color: blue;">Takaisin</a> </p>
+		<?php endif ?>
 	</form>
 </body>
 </html>

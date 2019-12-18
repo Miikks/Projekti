@@ -1,0 +1,53 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: 18.12.2019 klo 17:45
+-- Palvelimen versio: 5.7.26
+-- PHP Version: 7.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `rekisteri`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Rakenne taululle `kayttajat`
+--
+
+DROP TABLE IF EXISTS `kayttajat`;
+CREATE TABLE IF NOT EXISTS `kayttajat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kayttajanimi` varchar(255) NOT NULL,
+  `salasana` varchar(255) NOT NULL,
+  `tyyppi` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
+--
+-- Vedos taulusta `kayttajat`
+--
+
+INSERT INTO `kayttajat` (`id`, `kayttajanimi`, `salasana`, `tyyppi`) VALUES
+(22, 'Kalle123', '9b45f696f421f9c982beb5b7ee725592', 'tyyppi'),
+(23, 'Admin', '0192023a7bbd73250516f069df18b500', 'admin'),
+(20, 'Mikko', 'db5fc31f7a6cbc43aff6665e09d65629', 'tyyppi'),
+(19, 'Urho1', '8b5976558c063c6e2703d60af02e35bd', 'tyyppi');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

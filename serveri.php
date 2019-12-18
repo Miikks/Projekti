@@ -57,7 +57,7 @@ function rekisteri(){
 			// nappaa luodun käyttäjän id
 			$nappaa_id = mysqli_insert_id($db);
 
-			$_SESSION['tyyppi'] = idtalteen($nappaa_id); // Laittaa kirjautuneen käyttäjän sessioon
+			$_SESSION['user'] = idtalteen($nappaa_id); // Laittaa kirjautuneen käyttäjän sessioon
 			header('location: Etusivu.php');				
 		}
 	}
@@ -86,14 +86,14 @@ function idtalteen($id){
 	$query = "SELECT * FROM kayttajat WHERE id=" . $id;
 	$result = mysqli_query($db, $query);
 
-	$tyyppi = mysqli_fetch_assoc($result);
-	return $tyyppi;
+	$user = mysqli_fetch_assoc($result);
+	return $user;
 } // Tarkistaa onko admin kirjautunut sisään
 function Admin()
 {
 	if (isset($_SESSION['kayttajanimi']) && $_SESSION['kayttajanimi']['tyyppi'] == 'admin' ) {
 		return true;
-	}else{
+	}else {
 		return false;
 	}
 } //Tarkistetaan kirjautuminen
@@ -109,7 +109,7 @@ if (isset($_POST['kirjau'])) {
 	kirjautunut();
 }
 
-// 
+
 function kirjautunut(){
 	global $db, $kayttajanimi, $tarkistus;
 

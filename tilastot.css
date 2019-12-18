@@ -50,6 +50,7 @@ form {
   background: #FFD700;
   border: none;
   border-radius: 5px;
+  visibility="hidden";
 }
 .edit_btn {
     text-decoration: none;
@@ -57,6 +58,7 @@ form {
     background: #2E8B57;
     color: white;
     border-radius: 3px;
+	visibility="hidden";
 }
 
 .del_btn {
@@ -65,6 +67,7 @@ form {
     color: white;
     border-radius: 3px;
     background: #800000;
+	visibility="hidden";
 }
 .msg {
     margin: 30px auto; 
