@@ -7,7 +7,7 @@
   <div class="header">
   	<h2>Kirjaudu sisään</h2>
   </div>
-	 
+	 <!-- "Aloitussivu", tästä pääsee muuaalle -->
   <form method="post" action="kirjau.php">
   	<?php include('tarkistus.php'); ?>
   	<div class="input-group">

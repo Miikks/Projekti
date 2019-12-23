@@ -1,5 +1,5 @@
 <?php 
-
+// Vähän turha sivu mutta oli tarkoitus olla muutakin, nyt siitä tuli etusivun kopio
 // Tarkistaa onko käyttäjä kirjautunut, jos ei niin heittää suoraan kirjautumissivulle
 
 include('serveri.php');

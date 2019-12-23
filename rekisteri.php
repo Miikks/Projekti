@@ -7,7 +7,7 @@
   <div class="header">
   	<h2>Tervetuloa asiakkaaksi!</h2>
   </div>
-	
+	<!-- Tavallinen käyttäjä voi rekisteröityä -->
   <form method="post" action="rekisteri.php">
   	<?php include('tarkistus.php'); ?>
   	<div class="input-group">

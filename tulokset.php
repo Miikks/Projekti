@@ -2,7 +2,7 @@
 if (!onkokirjautunut()) {
 	$_SESSION['msg'] = "Kirjaudu ensin sisään";
 	header('location: kirjau.php');
-}
+} //Tarkistaa onko kirjautunut sisään
 ?>
 
 <?php  include('oserveri.php'); ?>
@@ -45,7 +45,7 @@ if (!onkokirjautunut()) {
 			<th>Kotijoukkue</th>
 			<th>Vierasjoukkue</th>
 			<th>Kotijoukkueen maalit</th>
-			<th>Vierasjoukkueen maalit</th>
+			<th>Vierasjoukkueen maalit</th> <!-- Olemassaolevien tietojen otsikot -->
 			<th>Päivämäärä</th>
 			<th colspan="2">Muokkaa</th>
 			<th colspan="2">Poista</th>
@@ -80,7 +80,7 @@ if (Admin($id) == true) : ?>
 
 <?php 
 include_once('serveri.php');
-if (Admin($id) == true) : ?>
+if (Admin($id) == true) : ?> 
 <form method="post" action="oserveri.php" >
 		<div class="input-group">
 			<label>Kotijoukkue</label>
@@ -113,7 +113,7 @@ if (Admin($id) == true) : ?>
 		</div>
 		<br><?php 
 include_once('serveri.php');
-if (Admin($id) == true) : ?>
+if (Admin($id) == true) : ?> <!-- Näyttää takaisin linkin järkevästi -->
 		<p> <a href="Etusivu2.php" style="color: blue;">Takaisin</a> </p>
 		<?php else: ?>
 		<p align="center" > <a href="Etusivu2.php" style="color: blue;">Takaisin</a> </p>

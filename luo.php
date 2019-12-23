@@ -15,7 +15,7 @@
 	
 	<form method="post" action="luo.php">
 
-		
+		<!-- Admin voi lisätä muita admineita tai käyttäjiä -->
 
 		<div class="input-group">
 			<label>Käyttäjänimi</label>
@@ -37,7 +37,7 @@
 			<label>Vahvista salasana</label>
 			<input type="password" name="salasana_2">
 		</div>
-		<div class="input-group">	<!-- Piilotettuna koska kuka vaan voi lisätä, tarkoituksen olisi että vain admin voi -->
+		<div class="input-group">	
 			<button type="submit"  class="btn" name="rekisteri">Luo käyttäjä</button>
 			<p> <a href="Etusivu.php" style="color: blue;">Takaisin</a> </p>
 		</div>

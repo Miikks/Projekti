@@ -18,7 +18,7 @@ function rekisteri(){
 	$salasana_1  =  e($_POST['salasana_1']);
 	$salasana_2 =  e($_POST['salasana_2']);
 
-//Tarkista ettei ole tyhjiä
+//Tarkistaa ettei ole tyhjiä
 	if (empty($kayttajanimi)) { 
 		array_push($tarkistus, "Käyttäjänimi tarvitaan"); 
 	}
@@ -61,22 +61,7 @@ function rekisteri(){
 			header('location: Etusivu.php');				
 		}
 	}
-} // Kokeilu että käyttäjä voisi muokata tietojaan mutta hylätty
-/*if (isset($_POST['muokkaus'])) {
-  
-  $sahkoposti = mysqli_real_escape_string($db, $_POST['sahkoposti']);
-  $osoite = mysqli_real_escape_string($db, $_POST['osoite']);
-  if (empty($sahkoposti)) { array_push($tarkistus, "Sähköposti vaaditaan"); }
-  if (empty($osoite)) { array_push($tarkistus, "Osoite vaaditaan"); }
-  if (count($tarkistus) == 0) {
-
-  	$query = "INSERT INTO kayttajat (sahkoposti, osoite) 
-  			  VALUES('$sahkoposti', '$osoite')";
-  	mysqli_query($db, $query);
-  	$_SESSION['success'] = "Tietojen lisäys onnistui";
-  	
-  }
-}*/
+} 
 function e($val){
 	global $db;
 	return mysqli_real_escape_string($db, trim($val));
